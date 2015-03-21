@@ -7,10 +7,10 @@ namespace Vending_Machine_Kata
     public class VendingMachineTests
     {
         [TestClass]
-        public class VendingMachine_Should
+        public class Display_Should
         {
             [TestMethod]
-            public void Display_INSERT_COIN_when_no_coins_inserted()
+            public void Read_INSERT_COIN_when_no_coins_inserted()
             {
                 var sut = new VendingMachine();
 
