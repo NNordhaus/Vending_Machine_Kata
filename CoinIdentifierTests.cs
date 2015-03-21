@@ -40,6 +40,16 @@ namespace Vending_Machine_Kata
 
                 Assert.AreEqual(25, actual);
             }
+
+            [TestMethod]
+            public void Not_match_Half_Dollar()
+            {
+                var sut = new CoinIdentifier();
+
+                var actual = sut.GetCoinValue(new Coin() { WeightInGrams = 11.340f });
+
+                Assert.AreEqual(0, actual);
+            }
         }
     }
 }
