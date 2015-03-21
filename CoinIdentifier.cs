@@ -22,7 +22,9 @@ namespace Vending_Machine_Kata
 
         public int GetCoinValue(Coin c)
         {
-            var matched = acceptedCoins.FirstOrDefault(ac => ac.WeightInGrams == c.WeightInGrams);
+            var matched = acceptedCoins.FirstOrDefault(ac => 
+                ac.WeightInGrams == c.WeightInGrams
+                && ac.DiameterInMM == c.DiameterInMM);
 
             if (matched == null)
             {
