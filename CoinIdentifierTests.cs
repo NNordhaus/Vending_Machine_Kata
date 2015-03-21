@@ -12,13 +12,33 @@ namespace Vending_Machine_Kata
             // Using coin specs found here: http://www.usmint.gov/about_the_mint/index.cfm?flash=yes&action=coin_specifications 
 
             [TestMethod]
-            public void Match_5_cents_by_a_Nickels_Size_and_weight()
+            public void Return_5_cents_when_matching_a_Nickels_weight()
             {
                 var sut = new CoinIdentifier();
 
-                var actual = sut.GetCoinValue(new Coin() { WeightInGrams = 5f, DiameterInMM = 21.21f, ThicknessInMM = 1.95f });
+                var actual = sut.GetCoinValue(new Coin() { WeightInGrams = 5.000f });
 
                 Assert.AreEqual(5, actual);
+            }
+
+            [TestMethod]
+            public void Return_10_cents_when_matching_a_Dimes_weight()
+            {
+                var sut = new CoinIdentifier();
+
+                var actual = sut.GetCoinValue(new Coin() { WeightInGrams = 2.268f });
+
+                Assert.AreEqual(10, actual);
+            }
+
+            [TestMethod]
+            public void Return_25_cents_when_matching_a_Quarters_weight()
+            {
+                var sut = new CoinIdentifier();
+
+                var actual = sut.GetCoinValue(new Coin() { WeightInGrams = 5.670f });
+
+                Assert.AreEqual(25, actual);
             }
         }
     }
