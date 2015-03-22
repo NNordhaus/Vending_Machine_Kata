@@ -17,5 +17,19 @@ namespace Vending_Machine_Kata
                 Assert.AreEqual("INSERT COIN", sut.Display);
             }
         }
+
+        [TestClass]
+        public class InsertCoin_Should
+        {
+            [TestMethod]
+            public void Update_Display()
+            {
+                var sut = new VendingMachine();
+
+                sut.InsertCoin(TestCoins.Nickel);
+
+                Assert.AreEqual("$0.05", sut.Display);
+            }
+        }
     }
 }
