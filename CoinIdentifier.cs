@@ -24,7 +24,8 @@ namespace Vending_Machine_Kata
         {
             var matched = acceptedCoins.FirstOrDefault(ac => 
                 ac.WeightInGrams == c.WeightInGrams
-                && ac.DiameterInMM == c.DiameterInMM);
+                && ac.DiameterInMM == c.DiameterInMM
+                && ac.ThicknessInMM == c.ThicknessInMM);
 
             if (matched == null)
             {
