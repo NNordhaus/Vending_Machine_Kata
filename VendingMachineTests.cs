@@ -22,13 +22,23 @@ namespace Vending_Machine_Kata
         public class InsertCoin_Should
         {
             [TestMethod]
-            public void Update_Display()
+            public void Update_Display_When_Nickel_Inserted()
             {
                 var sut = new VendingMachine();
 
                 sut.InsertCoin(TestCoins.Nickel);
 
                 Assert.AreEqual("$0.05", sut.Display);
+            }
+
+            [TestMethod]
+            public void Update_Display_When_Dime_Inserted()
+            {
+                var sut = new VendingMachine();
+
+                sut.InsertCoin(TestCoins.Dime);
+
+                Assert.AreEqual("$0.10", sut.Display);
             }
         }
     }
