@@ -8,6 +8,8 @@ namespace Vending_Machine_Kata
 {
     public static class TestCoins
     {
+        // http://www.usmint.gov/about_the_mint/index.cfm?flash=yes&action=coin_specifications
+
         public static Coin Penny { get { return new Coin() { Value = 1, WeightInGrams = 2.500f, DiameterInMM = 19.05f, ThicknessInMM = 1.52f }; } }
         public static Coin Nickel { get { return new Coin() { Value = 5, WeightInGrams = 5.000f, DiameterInMM = 21.21f, ThicknessInMM = 1.95f }; } }
         public static Coin Dime { get { return new Coin() { Value = 10, WeightInGrams = 2.268f, DiameterInMM = 17.91f, ThicknessInMM = 1.35f }; } }
