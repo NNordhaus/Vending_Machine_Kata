@@ -53,6 +53,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Tests\SelectProductTests.cs" />
     <Compile Include="Vending Machine\CoinIdentifier.cs" />
     <Compile Include="Interfaces\ICurrencyIdentifier.cs" />
     <Compile Include="Main.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Tests\CoinIdentifierTests.cs" />
     <Compile Include="Test Helpers\TestCoins.cs" />
     <Compile Include="Tests\VendingMachineTests.cs" />
+    <Compile Include="Vending Machine\Product.cs" />
     <Compile Include="Vending Machine\VendingMachine.cs" />
   </ItemGroup>
   <ItemGroup>

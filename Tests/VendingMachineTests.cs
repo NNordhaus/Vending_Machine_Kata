@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Vending_Machine_Kata
 {
     [TestClass]
-    public class VendingMachineTests
+    public partial class VendingMachineTests
     {
         [TestClass]
         public class Display_Should
@@ -61,6 +61,6 @@ namespace Vending_Machine_Kata
 
                 Assert.AreEqual(2, sut.CoinReturn.Count);
             }
-        }
+        }   
     }
 }
