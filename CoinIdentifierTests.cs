@@ -86,7 +86,7 @@ namespace Vending_Machine_Kata
             {
                 var sut = new CoinIdentifier();
 
-                var actual = sut.GetCoinValue(new Coin() { WeightInGrams = 11.340f });
+                var actual = sut.GetCoinValue(TestCoins.HalfDollar);
 
                 Assert.AreEqual(0, actual);
             }
@@ -96,7 +96,7 @@ namespace Vending_Machine_Kata
             {
                 var sut = new CoinIdentifier();
 
-                var actual = sut.GetCoinValue(new Coin() { WeightInGrams = 2.500f, DiameterInMM = 19.05f, ThicknessInMM = 1.52f });
+                var actual = sut.GetCoinValue(TestCoins.Penny);
 
                 Assert.AreEqual(0, actual);
             }

@@ -59,6 +59,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CoinIdentifierTests.cs" />
+    <Compile Include="TestCoins.cs" />
     <Compile Include="VendingMachineTests.cs" />
     <Compile Include="VendingMachine.cs" />
   </ItemGroup>
