@@ -54,6 +54,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CoinIdentifier.cs" />
+    <Compile Include="Interfaces\ICurrencyIdentifier.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

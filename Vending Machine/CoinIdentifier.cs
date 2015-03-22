@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Vending_Machine_Kata.Interfaces;
 
 namespace Vending_Machine_Kata
 {
-    public class CoinIdentifier
+    public class CoinIdentifier : ICurrencyIdentifier
     {
         public CoinIdentifier()
         {

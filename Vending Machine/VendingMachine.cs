@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Vending_Machine_Kata.Interfaces;
 
 namespace Vending_Machine_Kata
 {
     public class VendingMachine
     {
-        CoinIdentifier identifier = new CoinIdentifier();
+        ICurrencyIdentifier identifier = new CoinIdentifier();
         List<Coin> InsertedCoins = new List<Coin>();
-
-        string display = "INSERT COIN";
 
         public string Display
         {
