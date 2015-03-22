@@ -24,6 +24,7 @@ namespace Vending_Machine_Kata
         }
         
         public IList<Coin> CoinReturn = new List<Coin>();
+        public IList<Product> ProductReturn = new List<Product>();
 
         public string Display
         {
@@ -55,11 +56,28 @@ namespace Vending_Machine_Kata
             {
                 InsertedCoins.Add(coin);
             }
+            DispenseProduct();
         }
 
         public void SelectProduct(char button)
         {
             selectedProduct = products.First(p => p.Button == button);
+            DispenseProduct();
+        }
+
+        private void DispenseProduct()
+        {
+            if (selectedProduct == null)
+            {
+                return;
+            }
+
+            if (InsertedCoins.Sum(c => c.Value) == selectedProduct.Price)
+            {
+                ProductReturn.Add(selectedProduct);
+                products.First(p => p.Button == selectedProduct.Button).Count--;
+                InsertedCoins.Clear();
+            }
         }
     }
 }
