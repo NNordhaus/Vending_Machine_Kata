@@ -40,6 +40,27 @@ namespace Vending_Machine_Kata
 
                 Assert.AreEqual("$0.10", sut.Display);
             }
+
+            [TestMethod]
+            public void Put_Inserted_Penny_into_Coin_Return()
+            {
+                var sut = new VendingMachine();
+
+                sut.InsertCoin(TestCoins.Penny);
+
+                Assert.AreEqual(1, sut.CoinReturn.Count);
+            }
+
+            [TestMethod]
+            public void Put_Inserted_Penny_and_Half_Dollar_into_Coin_Return()
+            {
+                var sut = new VendingMachine();
+
+                sut.InsertCoin(TestCoins.Penny);
+                sut.InsertCoin(TestCoins.HalfDollar);
+
+                Assert.AreEqual(2, sut.CoinReturn.Count);
+            }
         }
     }
 }

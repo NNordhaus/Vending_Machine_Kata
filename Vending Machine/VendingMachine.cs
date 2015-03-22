@@ -10,7 +10,9 @@ namespace Vending_Machine_Kata
     public class VendingMachine
     {
         ICurrencyIdentifier identifier = new CoinIdentifier();
-        List<Coin> InsertedCoins = new List<Coin>();
+        IList<Coin> InsertedCoins = new List<Coin>();
+
+        public IList<Coin> CoinReturn = new List<Coin>();
 
         public string Display
         {
@@ -29,10 +31,16 @@ namespace Vending_Machine_Kata
         {
             coin.Value = identifier.GetCoinValue(coin);
 
-            if (coin.Value > 0f)
+            if (coin.Value == 0f)
+            {
+                CoinReturn.Add(coin);
+            }
+            else
             {
                 InsertedCoins.Add(coin);
             }
         }
+
+        
     }
 }
