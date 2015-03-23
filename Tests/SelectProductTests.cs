@@ -37,6 +37,23 @@ namespace Vending_Machine_Kata.Tests
 
                 Assert.AreEqual("Cola", sut.ProductReturn[0].Name);
             }
+
+            [TestMethod]
+            public void Dispense_correct_product_when_product_selected_then_money_inserted()
+            {
+                var sut = new VendingMachine();
+
+                sut.SelectProduct('B');
+
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Dime);
+                sut.InsertCoin(TestCoins.Dime);
+                sut.InsertCoin(TestCoins.Nickel);
+
+                Assert.AreEqual("Chips", sut.ProductReturn[0].Name);
+            }
+
+            
         }
     }
 }
