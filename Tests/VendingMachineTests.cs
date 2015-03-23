@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Vending_Machine_Kata
@@ -14,6 +15,22 @@ namespace Vending_Machine_Kata
             {
                 var sut = new VendingMachine();
 
+                Assert.AreEqual("INSERT COIN", sut.Display);
+            }
+
+            [TestMethod]
+            public void Read_THANK_YOU_on_first_read_after_dispense_then_INSERT_COIN()
+            {
+                var sut = new VendingMachine();
+
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+
+                sut.SelectProduct('A');
+
+                Assert.AreEqual("THANK YOU", sut.Display);
                 Assert.AreEqual("INSERT COIN", sut.Display);
             }
         }
