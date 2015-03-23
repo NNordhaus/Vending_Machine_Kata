@@ -53,7 +53,18 @@ namespace Vending_Machine_Kata.Tests
                 Assert.AreEqual("Chips", sut.ProductReturn[0].Name);
             }
 
-            
+            [TestMethod]
+            public void Not_dispense_product_when_insufficient_money_inserted()
+            {
+                var sut = new VendingMachine();
+
+                sut.SelectProduct('C');
+
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Dime);
+
+                Assert.AreEqual(0, sut.ProductReturn.Count);
+            }
         }
     }
 }
