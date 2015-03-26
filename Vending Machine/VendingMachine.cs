@@ -94,7 +94,23 @@ namespace Vending_Machine_Kata
 
         private void DispenseChange(int changeDue)
         {
-            CoinReturn.Add(new Coin() { Value = changeDue });
+            while(changeDue >= 25)
+            {
+                CoinReturn.Add(new Coin() { Value = 25 });
+                changeDue -= 25;
+            }
+            
+            while(changeDue >= 10)
+            {
+                CoinReturn.Add(new Coin() { Value = 10 });
+                changeDue -= 10;
+            }
+
+            while (changeDue >= 5)
+            {
+                CoinReturn.Add(new Coin() { Value = 5 });
+                changeDue -= 5;
+            }
         }
     }
 }
