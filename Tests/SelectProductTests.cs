@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Vending_Machine_Kata.Tests
 {
-    [TestClass]
+    //[TestClass]
     public partial class VendingMachineTests
     {
-        [TestClass]
-        public class SelectProduct_Should
+        //[TestClass]
+        public partial class SelectProduct_Should
         {
             [TestMethod]
             public void Display_Product_Price()

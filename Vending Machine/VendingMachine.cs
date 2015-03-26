@@ -79,14 +79,22 @@ namespace Vending_Machine_Kata
                 return;
             }
 
-            if (InsertedCoins.Sum(c => c.Value) == selectedProduct.Price)
+            var valueInserted = InsertedCoins.Sum(c => c.Value);
+            if (valueInserted >= selectedProduct.Price)
             {
                 ProductReturn.Add(new Product() { Name = selectedProduct.Name });
                 products.First(p => p.Button == selectedProduct.Button).Count--;
+                var changeDue = valueInserted - selectedProduct.Price;
+                DispenseChange(changeDue);
                 selectedProduct = null;
                 InsertedCoins.Clear();
                 productJustDispensed = true;
             }
+        }
+
+        private void DispenseChange(int changeDue)
+        {
+            CoinReturn.Add(new Coin() { Value = changeDue });
         }
     }
 }
