@@ -19,18 +19,25 @@ namespace Vending_Machine_Kata
         {
             // Load up some inventory
             products.Add(new Product() { Button = 'A', Name = "Cola", Price = 100, Count = 12 });
-            products.Add(new Product() { Button = 'B', Name = "Chips", Price = 50, Count = 10 });
+            products.Add(new Product() { Button = 'B', Name = "Chips", Price = 50, Count = 2 });
             products.Add(new Product() { Button = 'C', Name = "Candy", Price = 65, Count = 20 });
         }
         
         public IList<Coin> CoinReturn = new List<Coin>();
         public IList<Product> ProductReturn = new List<Product>();
 
+        bool selecedProductSoldOut;
         bool productJustDispensed;
         public string Display
         {
             get
             {
+                if (selecedProductSoldOut)
+                {
+                    selecedProductSoldOut = false;
+                    return "SOLD OUT";
+                }
+
                 if (productJustDispensed)
                 {
                     productJustDispensed = false;
@@ -69,7 +76,14 @@ namespace Vending_Machine_Kata
         public void SelectProduct(char button)
         {
             selectedProduct = products.First(p => p.Button == button);
-            DispenseProduct();
+            if (selectedProduct.Count == 0)
+            {
+                selecedProductSoldOut = true;
+            }
+            else
+            {
+                DispenseProduct();
+            }
         }
 
         private void DispenseProduct()
