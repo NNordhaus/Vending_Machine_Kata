@@ -112,5 +112,11 @@ namespace Vending_Machine_Kata
                 changeDue -= 5;
             }
         }
+
+        public void ReturnCoins()
+        {
+            ((List<Coin>)CoinReturn).AddRange(InsertedCoins);
+            InsertedCoins.Clear();
+        }
     }
 }
