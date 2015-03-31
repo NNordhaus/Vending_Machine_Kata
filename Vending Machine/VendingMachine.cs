@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Vending_Machine_Kata.Interfaces;
 using Vending_Machine_Kata;
+using Vending_Machine_Kata.Currency;
 
 namespace Vending_Machine_Kata
 {
@@ -13,6 +14,9 @@ namespace Vending_Machine_Kata
         ICurrencyIdentifier identifier = new CoinIdentifier();
         IList<Coin> InsertedCoins = new List<Coin>();
         IList<Product> products = new List<Product>();
+        List<Coin> quarters = new List<Coin>();
+        List<Coin> dimes = new List<Coin>();
+        List<Coin> nickels = new List<Coin>();
         Product selectedProduct;
 
         public VendingMachine()
@@ -21,6 +25,11 @@ namespace Vending_Machine_Kata
             products.Add(new Product() { Button = 'A', Name = "Cola", Price = 100, Count = 12 });
             products.Add(new Product() { Button = 'B', Name = "Chips", Price = 50, Count = 2 });
             products.Add(new Product() { Button = 'C', Name = "Candy", Price = 65, Count = 20 });
+
+            // Load up some change
+            nickels.AddRange(Bank.GetNickels(5));
+            dimes.AddRange(Bank.GetDimes(5));
+            quarters.AddRange(Bank.GetQuarters(5));
         }
         
         public IList<Coin> CoinReturn = new List<Coin>();
@@ -108,15 +117,17 @@ namespace Vending_Machine_Kata
 
         private void DispenseChange(int changeDue)
         {
-            while(changeDue >= 25)
+            while(changeDue >= 25 && quarters.Any())
             {
-                CoinReturn.Add(new Coin() { Value = 25 });
+                CoinReturn.Add(quarters[0]);
+                quarters.RemoveAt(0);
                 changeDue -= 25;
             }
             
-            while(changeDue >= 10)
+            while(changeDue >= 10 && dimes.Any())
             {
-                CoinReturn.Add(new Coin() { Value = 10 });
+                CoinReturn.Add(dimes[0]);
+                dimes.RemoveAt(0);
                 changeDue -= 10;
             }
 

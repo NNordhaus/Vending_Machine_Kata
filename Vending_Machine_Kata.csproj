@@ -53,6 +53,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Currency\Bank.cs" />
     <Compile Include="Tests\SoldOutTests.cs" />
     <Compile Include="Tests\ReturnCoins.cs" />
     <Compile Include="Tests\MakeChange.cs" />
