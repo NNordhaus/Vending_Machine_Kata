@@ -56,12 +56,12 @@ namespace Vending_Machine_Kata
                 int sum = InsertedCoins.Sum(c => c.Value);
                 if (sum == 0 && selectedProduct != null)
                 {
-                    return "$" + (selectedProduct.Price / 100f).ToString("0.00");
+                    return FormatPrice(selectedProduct.Price);
                 }
 
                 if (sum > 0)
                 {
-                    return "$" + (sum / 100f).ToString("0.00");
+                    return FormatPrice(sum);
                 }
 
                 if (!CanMakeChange())
@@ -71,6 +71,11 @@ namespace Vending_Machine_Kata
 
                 return "INSERT COIN";
             }
+        }
+
+        private string FormatPrice(int price)
+        {
+            return "$" + (price / 100f).ToString("0.00");
         }
 
         private bool CanMakeChange()
