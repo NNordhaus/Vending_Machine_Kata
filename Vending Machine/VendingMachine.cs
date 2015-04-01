@@ -75,7 +75,7 @@ namespace Vending_Machine_Kata
 
         private bool CanMakeChange()
         {
-            return nickels.Count > 0;
+            return nickels.Count > 0 && dimes.Count > 1;
         }
 
         public void InsertCoin(Coin coin)

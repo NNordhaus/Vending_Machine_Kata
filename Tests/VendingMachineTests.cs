@@ -83,6 +83,37 @@ namespace Vending_Machine_Kata
            
                 Assert.AreEqual("EXACT CHANGE ONLY", sut.Display);
             }
+
+            [TestMethod]
+            public void Read_EXACT_CHANGE_ONLY_when_cannot_give_two_dimes_back()
+            {
+                var sut = new VendingMachine();
+
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.SelectProduct('C');
+
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.SelectProduct('C');
+
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.SelectProduct('C');
+
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.SelectProduct('C');
+
+                var d = sut.Display;
+                Assert.AreEqual("THANK YOU", d);
+
+                Assert.AreEqual("EXACT CHANGE ONLY", sut.Display);
+            }
         }
 
         [TestClass]
