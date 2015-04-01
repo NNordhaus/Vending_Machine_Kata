@@ -159,6 +159,20 @@ namespace Vending_Machine_Kata
 
                 Assert.AreEqual(2, sut.CoinReturn.Count);
             }
+
+            [TestMethod]
+            public void Reject_Any_Coin_When_Inserted_Amount_Is_Equal_or_Greater_than_most_expensive_item()
+            {
+                var sut = new VendingMachine();
+
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+
+                Assert.AreEqual(1, sut.CoinReturn.Count);
+            }
         }   
     }
 }

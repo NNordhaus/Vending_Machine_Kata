@@ -80,6 +80,12 @@ namespace Vending_Machine_Kata
 
         public void InsertCoin(Coin coin)
         {
+            if(InsertedCoins.Sum(c => c.Value) >= products.Max(p => p.Price))
+            {
+                CoinReturn.Add(coin);
+                return;
+            }
+
             coin.Value = identifier.GetCoinValue(coin);
 
             if (coin.Value == 0f)
