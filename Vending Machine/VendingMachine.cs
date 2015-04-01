@@ -63,8 +63,19 @@ namespace Vending_Machine_Kata
                 {
                     return "$" + (sum / 100f).ToString("0.00");
                 }
+
+                if (!CanMakeChange())
+                {
+                    return "EXACT CHANGE ONLY";
+                }
+
                 return "INSERT COIN";
             }
+        }
+
+        private bool CanMakeChange()
+        {
+            return nickels.Count > 0;
         }
 
         public void InsertCoin(Coin coin)
@@ -133,7 +144,8 @@ namespace Vending_Machine_Kata
 
             while (changeDue >= 5)
             {
-                CoinReturn.Add(new Coin() { Value = 5 });
+                CoinReturn.Add(nickels[0]);
+                nickels.RemoveAt(0);
                 changeDue -= 5;
             }
         }

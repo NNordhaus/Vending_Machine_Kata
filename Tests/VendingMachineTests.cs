@@ -33,6 +33,56 @@ namespace Vending_Machine_Kata
                 Assert.AreEqual("THANK YOU", sut.Display);
                 Assert.AreEqual("INSERT COIN", sut.Display);
             }
+
+            [TestMethod]
+            public void Read_EXACT_CHANGE_ONLY_when_cannot_give_nickel_back()
+            {
+                var sut = new VendingMachine();
+            
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Dime);
+                sut.InsertCoin(TestCoins.Dime);
+                sut.InsertCoin(TestCoins.Dime);
+                sut.SelectProduct('A');
+
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Dime);
+                sut.InsertCoin(TestCoins.Dime);
+                sut.InsertCoin(TestCoins.Dime);
+                sut.SelectProduct('A');
+
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Dime);
+                sut.InsertCoin(TestCoins.Dime);
+                sut.InsertCoin(TestCoins.Dime);
+                sut.SelectProduct('A');
+
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Dime);
+                sut.InsertCoin(TestCoins.Dime);
+                sut.InsertCoin(TestCoins.Dime);
+                sut.SelectProduct('A');
+
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Quarter);
+                sut.InsertCoin(TestCoins.Dime);
+                sut.InsertCoin(TestCoins.Dime);
+                sut.InsertCoin(TestCoins.Dime);
+                sut.SelectProduct('A');
+                var d = sut.Display;
+                Assert.AreEqual("THANK YOU", d);
+           
+                Assert.AreEqual("EXACT CHANGE ONLY", sut.Display);
+            }
         }
 
         [TestClass]
