@@ -35,15 +35,15 @@ namespace Vending_Machine_Kata
         public IList<Coin> CoinReturn = new List<Coin>();
         public IList<Product> ProductReturn = new List<Product>();
 
-        bool selecedProductSoldOut;
+        bool selectedProductSoldOut;
         bool productJustDispensed;
         public string Display
         {
             get
             {
-                if (selecedProductSoldOut)
+                if (selectedProductSoldOut)
                 {
-                    selecedProductSoldOut = false;
+                    selectedProductSoldOut = false;
                     return "SOLD OUT";
                 }
 
@@ -98,7 +98,7 @@ namespace Vending_Machine_Kata
             selectedProduct = products.First(p => p.Button == button);
             if (selectedProduct.Count == 0)
             {
-                selecedProductSoldOut = true;
+                selectedProductSoldOut = true;
             }
             else
             {
